@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+echo "== list bucket"
+
+# Check for bucket name
+if [ -z "$1" ]; then
+    echo "There needs to be a bucket name e.g. bucket my-bucket-name"
+    exit 1;
+fi
+
+BUCKET_NAME=$1
+
+
+OUTPUT_DIR="/tmp/s3-bash-scripts"
+
+mdkir -p $OUTPUT_DIR
+echo "aws s3api put-bucket --bucket $BUCKET_NAME"
+
+aws s3api put-object --bucket my-new-aman-an --region us-east-1 --query Location --output text
